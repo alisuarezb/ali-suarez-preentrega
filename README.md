@@ -10,6 +10,7 @@ Una herramienta de línea de comandos que permite interactuar con la API de [Fak
 mkdir preentrega
 cd preentrega
 ```
+Descarga `index.js`
 
 ### 2. Inicializar el proyecto con npm
 ```bash
