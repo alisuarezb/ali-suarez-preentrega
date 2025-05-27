@@ -19,14 +19,14 @@ Esto generará automáticamente un archivo package.json con configuración bási
 
 ### 3. Habilita ESModules en package.json:
 ```json
-   "type": "module"
+   "type": "module",
 ```
  Agregar el siguiente script en `package.json`para poder ejecutar el programa con `npm run start`:
 
 ```json
 "scripts": {
   "start": "node index.js"
-}
+},
 ```
 El package.json debería verse más o menos así:
 ```json
