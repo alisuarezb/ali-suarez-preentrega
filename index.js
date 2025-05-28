@@ -1,7 +1,7 @@
 // URL base para los productos en la API de FakeStore
 const urlBase = 'https://fakestoreapi.com/products';
 
-// Función para hacer peticiones GET a una URL proporcionada
+// Función para hacer peticiones GET a la URL proporcionada
 const fetchData = async (url) => {
   try {
     const response = await fetch(url); // Realiza la petición GET
@@ -27,7 +27,7 @@ const postData = async (url, body) => {
   }
 };
 
-// Función para hacer peticiones DELETE a una URL
+// Función para hacer peticiones DELETE a la URL
 const deleteData = async (url) => {
   try {
     const response = await fetch(url, { method: 'DELETE' }); // Realiza una petición DELETE
@@ -38,7 +38,7 @@ const deleteData = async (url) => {
   }
 };
 
-// Extrae los argumentos de la terminal: node, archivo, método, endpoint y demás argumentos
+// Extrae los argumentos de la terminal: node, archivo, método, endpoint y demás argumentos usando destructuring
 const [, , method, endpoint, ...args] = process.argv;
 
 // Función principal que gestiona qué acción ejecutar según el método HTTP y el endpoint
@@ -49,7 +49,7 @@ const main = async () => {
         const data = await fetchData(urlBase); // Obtiene todos los productos
         console.log(data); // Muestra los productos por consola
       } else if (endpoint.startsWith('products/')) {
-        const [, id] = endpoint.split('/'); // Extrae el ID del producto desde el endpoint
+        const [, id] = endpoint.split('/'); // Extrae el ID del producto desde el endpoint con destructuring
         const data = await fetchData(`${urlBase}/${id}`); // Obtiene el producto específico
         console.log(data); // Muestra el producto por consola
       } else {
@@ -59,7 +59,7 @@ const main = async () => {
 
     case 'POST': // Si el método es POST
       if (endpoint === 'products') {
-        const [title, price, category] = args; // Extrae los argumentos del producto
+        const [title, price, category] = args; // Extrae los argumentos del producto (destructuring)
         if (!title || !price || !category) { // Verifica que todos los argumentos estén presentes
           console.log('Faltan argumentos. USO: npm run start POST products <title> <price> <category>');
           return; // Termina la ejecución si faltan argumentos
